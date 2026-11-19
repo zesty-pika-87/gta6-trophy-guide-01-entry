@@ -19,6 +19,18 @@ import { buildDossier } from './vendor/makefun-frontend.ts';
 const repoRoot = fileURLToPath(new URL('.', import.meta.url));
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
+// Fail loudly, before copying anything, when the guide is incomplete: a missing
+// index.html or screenshots folder would otherwise surface only as a cryptic
+// dossier error from the scorer.
+for (const required of ['app/index.html', 'app/data/trophies.json', 'vendor/makefun-frontend.ts']) {
+  if (!existsSync(join(repoRoot, required))) {
+    throw new Error(`Leonida Platinum Roadbook: missing required file ${required}`);
+  }
+}
+if (!existsSync(join(repoRoot, 'screenshots'))) {
+  throw new Error('Leonida Platinum Roadbook: missing screenshots/ folder (needs 3 or 4 shots)');
+}
+
 mkdirSync(outputDir, { recursive: true });
 cpSync(join(repoRoot, 'app'), join(outputDir, 'app'), { recursive: true });
 mkdirSync(join(outputDir, 'screenshots'), { recursive: true });
