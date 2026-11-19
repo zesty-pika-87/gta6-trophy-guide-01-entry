@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum Roadbook — GTA VI trophy guide &amp; tracker</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; offline guide &amp; tracker</p>
+    <h1>Leonida Platinum Roadbook</h1>
+    <p class="deck">Every one of the 55 official trophies, a cited guide for each, a roadmap to the platinum — and a checklist that remembers where you stopped.</p>
+  </div>
+  <div class="masthead-stats" id="mastheadStats" aria-label="Collection summary"></div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Views">
+  <button type="button" data-view="checklist" class="tab active">Checklist</button>
+  <button type="button" data-view="roadmap" class="tab">Roadmap</button>
+  <button type="button" data-view="missables" class="tab">Missables</button>
+  <button type="button" data-view="planner" class="tab">Next up</button>
+</nav>
+
+<section class="toolbar" aria-label="Filters and progress tools">
+  <label class="search">Search <input id="search" type="search" placeholder="Trophy, mission, place…" autocomplete="off"></label>
+  <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+    <button type="button" data-kind="all" class="chip active">All 55</button>
+    <button type="button" data-kind="story" class="chip">Story</button>
+    <button type="button" data-kind="missable" class="chip">Missable</button>
+    <button type="button" data-kind="collectibles" class="chip">Collectibles</button>
+    <button type="button" data-kind="activities" class="chip">Activities</button>
+    <button type="button" data-kind="hidden" class="chip">Hidden</button>
+  </div>
+  <label class="grade">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="spoiler"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+  <div class="tools">
+    <button id="exportBtn" type="button">Export progress</button>
+    <label class="importBtn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+    <button id="resetBtn" type="button" title="Clear all saved progress">Reset</button>
+  </div>
+</section>
+
+<div class="progressline" id="progressLine" aria-label="Progress"></div>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="split">
+      <div class="listcol">
+        <p class="listhead" id="listHead"></p>
+        <ul class="trophylist" id="trophyList"></ul>
+      </div>
+      <aside class="detail" id="detailPane" aria-label="Trophy guide"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to the platinum — about 200 hours, difficulty 4/10</h2>
+    <p class="viewintro">Built from the official descriptions and PowerPyx's roadmap. No online trophies, no mission replay — so save by hand at every chapter start. Free-roam stays open after the story.</p>
+    <div class="stages" id="stages"></div>
+    <h3>The 100% checklist (for A Long Road)</h3>
+    <div class="hundred" id="hundred"></div>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <h2>Missables — one to watch, fifty-four that cannot be missed</h2>
+    <p class="viewintro">PowerPyx flags exactly one trophy as potentially missable. Everything else is safe: story missions, activities and collectibles all stay available in free-roam after the story ends.</p>
+    <div id="missableCards"></div>
+    <h3>Why the rest are safe</h3>
+    <p class="viewintro">No mission replay exists, so keep a manual save at the start of each chapter. Beyond that, every trophy below is earned in free-roam or by replaying an activity — nothing locks you out.</p>
+    <table class="safetable" id="safeTable">
+      <thead><tr><th>Trophy</th><th>Kind</th><th>Why it cannot be missed</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="view-planner" class="view" hidden>
+    <h2>Next up — what to do in this session</h2>
+    <p class="viewintro">Ordered by the roadmap: story first, then the open-world sweep, then the 100% clean-up. Tick trophies off as you earn them and the list re-sorts itself.</p>
+    <ol class="nextup" id="nextUp"></ol>
+    <h3>Target counters (PSN counts)</h3>
+    <p class="viewintro">Tap + / − to log progress toward a counted trophy. Counters are saved with your progress and exported with it.</p>
+    <div class="counters" id="counters"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Names, descriptions and grades are PlayStation's official list as Exophase and PSNProfiles publish it. Guides are this roadbook's own words; each trophy names its sources. Roadmap figures (difficulty, hours, 100% counts) follow PowerPyx's GTA 6 Trophy Guide &amp; Roadmap. Five trophies are labelled “not yet known” exactly as PowerPyx lists them — no location or step is guessed for those. Works fully offline; progress lives only in this browser (localStorage).</p>
+  <p id="demoNote" hidden>Demo seed: progress shown is seeded from the page address for screenshots, not earned play.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
